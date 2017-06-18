@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import graphlab
 # pass in column names for each CSV and read them using pandas. 
 # Column names available in the readme file
 
@@ -19,8 +20,15 @@ i_cols = ['movie id', 'movie title' ,'release date','video release date', 'IMDb 
  'Film-Noir', 'Horror', 'Musical', 'Mystery', 'Romance', 'Sci-Fi', 'Thriller', 'War', 'Western']
 items = pd.read_csv('ml-100k/ml-100k/u.item', sep='|', names=i_cols,encoding='latin-1')
 
-print(users)
+print(users.head())
 
-print(ratings)
+print(ratings.head())
 
-print(items)
+print(items.head())
+
+r_cols = ['user_id', 'movie_id', 'rating', 'unix_timestamp']
+ratings_base = pd.read_csv('ml-100k/ml-100k/ua.base', sep='\t', names=r_cols, encoding='latin-1')
+ratings_test = pd.read_csv('ml-100k/ml-100k/ua.test', sep='\t', names=r_cols, encoding='latin-1')
+
+print(ratings_base.head())
+print(ratings_test.head())
